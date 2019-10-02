@@ -1,19 +1,16 @@
 package com.gekif.review;
 
+import com.gekif.core.BaseEntity;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 
 @Entity
-public class Review {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private final Long id;
+public class Review extends BaseEntity {
 
     // TODO:csd - We are duplication code here for every single entity. Share it?
     protected Review() {
-        id = null;
+       super();
     }
 
     private int rating;
