@@ -2,6 +2,7 @@ package com.gekif.review;
 
 import com.gekif.core.BaseEntity;
 import com.gekif.course.Course;
+import com.gekif.user.User;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -15,6 +16,9 @@ public class Review extends BaseEntity {
     @ManyToOne
     private Course course;
 
+    @ManyToOne
+    private User reviewer;
+
     // TODO:csd - We are duplication code here for every single entity. Share it?
     protected Review() {
        super();
@@ -23,6 +27,14 @@ public class Review extends BaseEntity {
     public Review(int rating, String description) {
         this.rating = rating;
         this.description = description;
+    }
+
+    public User getReviewer() {
+        return reviewer;
+    }
+
+    public void setReviewer(User reviewer) {
+        this.reviewer = reviewer;
     }
 
     public Course getCourse() {
